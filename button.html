@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="zh-cn" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
     <title>Element Plus</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- Import style -->
+    <!-- Import style -->
     <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" />
-	<!-- Import Vue 3 -->
+    <!-- Import Vue 3 -->
     <script src="//unpkg.com/vue@3"></script>
-	<!-- Import component library -->
+    <!-- Import component library -->
     <script src="//unpkg.com/element-plus"></script>
     <script src="//unpkg.com/@element-plus/icons-vue"></script>
     <style>
@@ -54,14 +54,17 @@
         </el-row>
     </div>
     <script>
-        const {Check,  Delete,  Edit,  Message,  Search,  Star} = ElementPlusIconsVue;
+
         const app = Vue.createApp({
             data() {
                 return {
                     message: "Hello Element Plus",
                 };
             },
-        }).use(ElementPlus).use(Search).mount("#app");
+        }).use(ElementPlus).mount("#app");
+	for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+		app.component(key, component)
+	}
     </script>
 </body>
 </html>
