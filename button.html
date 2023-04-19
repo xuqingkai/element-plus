@@ -54,17 +54,18 @@
         </el-row>
     </div>
     <script>
-
         const app = Vue.createApp({
             data() {
                 return {
                     message: "Hello Element Plus",
                 };
             },
-        }).use(ElementPlus).mount("#app");
-	for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-		app.component(key, component)
-	}
+        });
+	for (const [key, component] of Object.entries(ElementPlusIconsVue)) {app.component(key, component);}
+	app.use(ElementPlus);
+        app.mount("#app");
+
+
     </script>
 </body>
 </html>
