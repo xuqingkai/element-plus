@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8">
+    <title>el-row,el-col</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Import style -->
+    <link href="//unpkg.com/element-plus/dist/index.css" rel="stylesheet" />
+	<!-- Import Vue 3 -->
+    <script src="//unpkg.com/vue@3"></script>
+	<!-- Import component library -->
+    <script src="//unpkg.com/element-plus"></script>
+
+
+    <link href="//unpkg.com/element-plus/theme-chalk/display.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div id="app">
+        <el-row :gutter="20">
+            <el-col :span="16"><div class="grid-content ep-bg-purple"></div></el-col>
+            <el-col :span="8"><div class="grid-content ep-bg-purple"></div></el-col>
+        </el-row>
+        <el-row :gutter="20">
+            <el-col :span="8"><div class="grid-content ep-bg-purple"></div></el-col>
+            <el-col :span="8"><div class="grid-content ep-bg-purple"></div></el-col>
+            <el-col :span="4"><div class="grid-content ep-bg-purple"></div></el-col>
+            <el-col :span="4"><div class="grid-content ep-bg-purple"></div></el-col>
+        </el-row>
+        <el-row :gutter="20">
+            <el-col :span="4"><div class="grid-content ep-bg-purple"></div></el-col>
+            <el-col :span="16"><div class="grid-content ep-bg-purple"></div></el-col>
+            <el-col :span="4"><div class="grid-content ep-bg-purple"></div></el-col>
+        </el-row>
+    </div>
+    <style scoped>
+        .el-row {
+            margin-bottom: 20px;
+        }
+        .el-row:last-child {
+            margin-bottom: 0;
+        }
+        .el-col {
+            border-radius: 4px;
+        }
+
+        .grid-content {
+            border-radius: 4px;
+            min-height: 36px;
+        }
+        .ep-bg-purple{ background: purple;}
+    </style>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message: "Hello Element Plus",
+                };
+            },
+        }).use(ElementPlus).mount("#app");
+    </script>
+</body>
+</html>

@@ -5,24 +5,26 @@
     <title>Element Plus</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Import style -->
-    <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" />
+    <link href="//unpkg.com/element-plus/dist/index.css" rel="stylesheet" />
 	<!-- Import Vue 3 -->
     <script src="//unpkg.com/vue@3"></script>
 	<!-- Import component library -->
     <script src="//unpkg.com/element-plus"></script>
-    <style>
-	
-    </style>
 </head>
 <body>
     <div id="app">
-        <el-button>{{ message }}</el-button>
+        <div v-for="link in links" :key="link" class="block">
+            <el-link :href="link" target="_blank">{{link}}</el-link>，
+        </div>
     </div>
+    <style>
+	
+    </style>
     <script>
         const app = Vue.createApp({
             data() {
                 return {
-                    message: "Hello Element Plus",
+                    links: ['button.html','container.html','layout.html','form.html'],
                 };
             },
         }).use(ElementPlus).mount("#app");

@@ -2,7 +2,7 @@
 <html lang="zh-cn" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
-    <title>Element Plus</title>
+    <title>el-button</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Import style -->
     <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" />
@@ -45,12 +45,30 @@
         </el-row>
 
         <el-row>
-            <el-button :icon="Search" circle />
-            <el-button type="primary" :icon="Edit" circle />
-            <el-button type="success" :icon="Check" circle />
-            <el-button type="info" :icon="Message" circle />
-            <el-button type="warning" :icon="Star" circle />
-            <el-button type="danger" :icon="Delete" circle />
+            <el-button circle><el-icon><Search /></el-icon></el-button>
+            <el-button type="primary" circle><el-icon><Edit /></el-icon></el-button>
+            <el-button type="success" circle><el-icon><Check /></el-icon></el-button>
+            <el-button type="info" circle><el-icon><Message /></el-icon></el-button>
+            <el-button type="warning" circle><el-icon><Star /></el-icon></el-button>
+            <el-button type="danger" size="large" circle><el-icon><Delete /></el-icon></el-button>
+        </el-row>
+        <el-row>
+            <el-button-group>
+                <el-button type="primary" :icon="ArrowLeft">Previous Page</el-button>
+                <el-button type="primary">
+                Next Page<el-icon class="el-icon--right"><ArrowRight /></el-icon>
+                </el-button>
+            </el-button-group>
+        </el-row>
+        <el-row>        
+            <el-button-group>
+                <el-button type="primary" circle><el-icon><Edit /></el-icon></el-button>
+                <el-button type="primary"><el-icon><Share /></el-icon></el-button>
+                <el-button type="primary"><el-icon><Delete /></el-icon></el-button>
+            </el-button-group>
+        </el-row>
+        <el-row>
+            <el-button type="primary" loading>Loading</el-button>       
         </el-row>
     </div>
     <script>
@@ -63,7 +81,7 @@
         });
 	for (const [key, component] of Object.entries(ElementPlusIconsVue)) { app.component(key, component); }
 	app.use(ElementPlus);
-        app.mount("#app");
+    app.mount("#app");
     </script>
 </body>
 </html>
