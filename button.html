@@ -45,6 +45,7 @@
         </el-row>
 
         <el-row>
+            <el-button type="primary" :icon="Edit" circle></el-button>
             <el-button circle><el-icon><Search /></el-icon></el-button>
             <el-button type="primary" circle><el-icon><Edit /></el-icon></el-button>
             <el-button type="success" circle><el-icon><Check /></el-icon></el-button>
@@ -76,6 +77,7 @@
             data() {
                 return {
                     message: "Hello Element Plus",
+                    Edit: ElementPlusIconsVue.Edit,
                 };
             },
         });
