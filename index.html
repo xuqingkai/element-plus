@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Element Plus</title>
+</head>
+<body>
+	<div class="uk-padding">
+		<div id="demo" class="uk-grid-small" uk-grid></div>
+		<hr class="uk-divider-icon">
+		<div id="file" class="uk-grid-small" uk-grid></div>
+	</div>
+	<script type="text/javascript">
+		function cb(response) {
+			var parents='';
+			var meta = response.meta;
+			var list = response.data;
+			for(var i in list){
+				if(list[i].type=='file' && list[i].name.substr(list[i].name.lastIndexOf('.') + 1)=='html'){
+					var element=UIkit.util.$('<div><a href="'+list[i].path+'">'+list[i].name+'</a></div>');
+					if(list[i].name.substr(0,5)=='demo_'){
+						UIkit.util.$('#demo').append(element);
+					}else if(list[i].name != 'index.html'){
+						UIkit.util.$('#file').append(element);
+					}
+				}
+			}
+		}
+		
+		var script = document.createElement('script');
+		script.src='https://api.github.com/repos/'+window.location.host.substr(0, window.location.host.indexOf('.'))+window.location.pathname+'contents/'+window.location.search.replace('?','')+'?callback=cb';
+		document.getElementsByTagName('head')[0].appendChild(script);
+	</script>
+</body>
+</html>
