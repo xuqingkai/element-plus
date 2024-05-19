@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>面包屑导航</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="//cdn.jsdelivr.net/npm/uikit@3.20.8/dist/css/uikit.min.css" rel="stylesheet" />
+    <script src="//cdn.jsdelivr.net/npm/uikit@3.20.8/dist/js/uikit.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/uikit@3.20.8/dist/js/uikit-icons.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/vue@3.4.27/dist/vue.global.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <link href="//cdn.jsdelivr.net/npm/element-plus@2.7.3/dist/index.min.css" rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/npm/element-plus@2.7.3/dist/index.full.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/@element-plus/icons-vue"></script>
+    <style type="text/css">
+        .el-menu-item,.el-sub-menu__title{padding:0;}
+        .el-menu:not(.el-menu--collapse) .el-sub-menu__title{padding-right:0}
+    </style>
+</head>
+<body>
+    <div id="app">
+        <el-affix :offset="0">
+            <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" router="true">
+                <el-menu-item index="1">首页</el-menu-item>
+                <el-sub-menu index="2">
+                    <template #title>
+                        <el-icon style="margin:0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 1024 1024"><path fill="currentColor" d="M384 192v640l384-320.064z"/></svg>
+                        </el-icon>
+                    </template>
+                    <el-menu-item index="2-1">新闻</el-menu-item>
+                    <el-menu-item index="2-2">咨询</el-menu-item>
+                    <el-menu-item index="2-3">方案</el-menu-item>
+                    <el-sub-menu index="2-4">
+                        <template #title>产品</template>
+                        <el-menu-item index="2-4-1">公卫</el-menu-item>
+                        <el-menu-item index="2-4-2">慢病</el-menu-item>
+                        <el-menu-item index="2-4-3">随访箱</el-menu-item>
+                    </el-sub-menu>
+                </el-sub-menu>
+                <el-menu-item index="3">产品</el-menu-item>
+                <el-menu-item>
+                    <el-icon style="margin:0"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 1024 1024"><path fill="currentColor" d="M384 192v640l384-320.064z"/></svg>
+                    </el-icon>
+                </el-menu-item>
+                <el-menu-item index="5">公卫</el-menu-item>
+                <el-menu-item>
+                    <el-icon style="margin:0"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 1024 1024"><path fill="currentColor" d="M384 192v640l384-320.064z"/></svg>
+                    </el-icon>
+                </el-menu-item>
+                <el-menu-item index="6">详情</el-menu-item>
+            </el-menu>
+            
+    	</el-affix>
+    	<el-table :data="tableData" stripe style="width: 100%">
+            <el-table-column prop="date" label="Date" width="180" />
+            <el-table-column prop="name" label="Name" width="180" />
+            <el-table-column prop="address" label="Address" />
+        </el-table>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    activeIndex:Vue.ref('1'),
+                    tableData:[
+                        {date: '2016-05-03',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-02',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-04',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-01',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-03',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-02',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-04',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-01',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-03',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-02',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-04',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-01',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-03',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-02',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-04',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-01',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-03',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-02',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-04',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-01',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-03',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-02',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-04',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-01',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-03',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-02',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-04',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-01',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-03',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-02',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-04',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                        {date: '2016-05-01',name: 'Tom',address: 'No. 189, Grove St, Los Angeles',},
+                    ],
+                };
+            },
+            mounted(){
+                const message = Vue.ref('Hello vue!');
+            },
+            methods: {
+                handleSelect(key, keyPath){
+                    console.log(key, keyPath);
+                }
+                ,initData(json){
+                    this.list=json.list;
+                    this.file=json.file;
+                }
+            },
+            components: {
+                
+            },
+            
+        });
+        for (var [key, component] of Object.entries(ElementPlusIconsVue)) { app.component(key, component); }
+        app.use(ElementPlus);
+        app.mount("#app");
+    </script>
+</body>
+</html>
